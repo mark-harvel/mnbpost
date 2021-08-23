@@ -1,0 +1,38 @@
+body {
+    padding-top: 20px;
+    background-color: #fafafa;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+/****************** header banner ********************/
+#headerBanner {
+    background: darkcyan;
+    background-image: url(../images/0-290_drawing-family-happy-talking-about-death-and-bereavement.png);
+}
+
+#headerBanner h1 {
+    font-family: 'Lobster', cursive;
+}
+
+#headerBanner p {
+    font-family: 'Lobster', cursive;
+}
+
+/****************** custom navbar ********************/
+.navbar-brand {
+    font-family: 'Lobster', cursive;
+}
+
+#siteNavbar {
+    background: white;
+}
+
+#offcanvasNavbarLabel {
+    font-family: 'Lobster', cursive;
+}
+
+
