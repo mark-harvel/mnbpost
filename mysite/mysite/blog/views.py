@@ -15,7 +15,7 @@ import requests
 
 
 # Class for Post List in Homepage
-class PostList(generic.ListView, generic.FormView):
+class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 5
