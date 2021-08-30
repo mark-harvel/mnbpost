@@ -1,31 +1,79 @@
 {% extends "base.html" %}
-{% block content %}
 
+{% load crispy_forms_tags %}
 
     <!-- Header of homepage -->
-    <div id="headerBanner" class="p-4 p-md-5 mb-4 mt-5 text-white rounded">
-        <div class="col-md-6 px-0 text-center">
-            <h1 class="display-4">
-                MnBpost
-            </h1>
-            <p class="lead my-3">The best blog when it comes to help make your life easier</p>
-            <p class="lead mb-0"><a href="">Use MnBdots</a></p>
-        </div>
-    </div>
+{% block header %}
+<style>
+    .banner-image {
+      background-image: url('../static/images/shubham-dhage-sTjJYqHI1Ds-unsplash.jpg');
+      background-size: cover;
+    }
+</style>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">MnBpost</a>
+      <button
+        style="border: none;"
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="mx-auto"></div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'contact' %}"><i class="fas fa-address-book"></i> Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#"><i class="fas fa-bell"></i> Subscribe</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner Image  -->
+  <div
+    class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center"
+  >
+    <div class="content text-center">
+      <h1 id="BannerSlogan" class="text-white">Make the difficult Decisions less difficult</h1>
+    </div>
+  </div>
+{% endblock header %}
+
+{% block content %}
+     <!-- tags -->
+{% if tag %}
+<h2 class="mb-3">Posts tagged with "{{ tag.name }}"</h2>
+{% endif %}
 <main class="container">
     <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-md-8 mt-3 left">
             {% for post in post_list %}
-            <div class="card mb-4">
+            <div id="postCard" class="card mb-4">
                 <div class="card-body">
                     <a href="{% url 'post_detail' post.slug %}">
                     <h2 class="card-title">{{ post.title }}</h2>
                     <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on }}</p>
                     <p class="card-text">{{ post.content|slice:":400"| safe }}</p>
-                    <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">Read More &rarr;</a>
                     </a>
+                    <a href="{% url 'post_detail' post.slug %}" class="btn btn-dark">Read More &rarr;</a>
                 </div>
             </div>
             {% endfor %}
@@ -60,5 +108,20 @@
         </ul>
     </nav>
     {% endif %}
+
+
+    
+
+    <script type="text/javascript">
+        var nav = document.querySelector('nav');
+  
+        window.addEventListener('scroll', function () {
+          if (window.pageYOffset > 500) {
+            nav.classList.add('bg-dark', 'shadow');
+          } else {
+            nav.classList.remove('bg-dark', 'shadow');
+          }
+        });
+      </script>
 </main>
-{%endblock%}
+{% endblock content %}

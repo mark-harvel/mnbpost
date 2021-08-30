@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block pagename %}About mnbpost {% endblock pagename %}
+
+{% block header %}
+<style>
+    #HeaderBanner {
+      background-image: url('../static/images/shubham-dhage-sTjJYqHI1Ds-unsplash.jpg');
+      background-size: cover;
+    }
+
+    #BannerRole {
+        background-image: url(../static/images/ben-robbins-I0iaRFzFJZM-unsplash.jpg);
+        background-size: cover;
+    }
+
+    #BannerTeam {
+        background-image: url(../static/images/lycs-architecture-U2BI3GMnSSE-unsplash.jpg);
+        background-size: cover;
+    }
+
+</style>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">MnBpost</a>
+      <button
+        style="border: none;"
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="mx-auto"></div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'about' %}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Subscribe</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner Image  -->
+  <div
+    id="HeaderBanner"
+    class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center"
+  >
+    <div class="content text-center">
+      <h1 style="font-size: 100px;" id="BannerSlogan" class="text-white">About MnBpost</h1>
+    </div>
+  </div>
+{% endblock header %}
+
+
+
+
+{% block content %}
+
+<section id="BannerRole" class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
+    <div class="content text-center">
+        <h2 style="font-family: 'Lobster', cursive; font-size: 35px;" class="text-white">Every article in MnBpost is written with the objective to inform and help others.</h2>
+    </div>
+    
+</section>
+
+<section id="BannerTeam" class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
+    <div class="content text-center">
+        <h2 style="font-family: 'Lobster', cursive; font-size: 40px;" class="text-white">At MnBpost, we have a team of dedicated writers with experience.</h2>
+    </div>
+    
+</section>
+
+
+{% endblock content %}

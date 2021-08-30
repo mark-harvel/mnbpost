@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block pagename %}Contact mnbpost {% endblock pagename %}
+
+{% block header %}
+<style>
+    #HeaderBanner {
+      background-image: url('../static/images/shubham-dhage-sTjJYqHI1Ds-unsplash.jpg');
+      background-size: cover;
+    }    
+</style>
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">MnBpost</a>
+      <button
+        style="border: none;"
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="mx-auto"></div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'about' %}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'contact' %}">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Subscribe</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner Image  -->
+  <div
+    id="HeaderBanner"
+    class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center"
+  >
+    <div class="content text-center">
+      <h1 style="font-size: 100px;" id="BannerSlogan" class="text-white">Contact MnBpost</h1>
+    </div>
+  </div>
+{% endblock header %}
+
+
+{% block content %}
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var nav = document.querySelector('nav');
+
+    window.addEventListener('scroll', function () {
+      if (window.pageYOffset > 500) {
+        nav.classList.add('bg-dark', 'shadow');
+      } else {
+        nav.classList.remove('bg-dark', 'shadow');
+      }
+    });
+  </script>
+{% endblock content %}
+
+

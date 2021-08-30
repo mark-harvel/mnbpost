@@ -43,11 +43,15 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'django_summernote',
     'django.contrib.sitemaps',
+    'taggit',
 ]
 
 # Crispy for forms
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+# Taggit
+TAGGIT_CASE_INSENSITIVE = True
 
 
 
@@ -149,3 +153,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR / "media/")
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+# Sttings for MAILCHIMP
+
+MAILCHIMP_API_KEY = "9212900debe835da708b8a92732ba225-us5"
+MAILCHIMP_DATA_CENTER = "us5"
+MAILCHIMP_EMAIL_LIST_ID = "ffd6df1bb9"

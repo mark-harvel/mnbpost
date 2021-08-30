@@ -1,14 +1,32 @@
+from django.http import response
 from django.shortcuts import render, get_object_or_404
+from django.contrib import messages
+from django.conf import settings
 from django.views import generic
-from .models import Post
+from django.views.generic.base import TemplateView
+from .models import Post, Signup
+from django.http import HttpResponseRedirect
 from .forms import CommmentForm
+from taggit.models import Tag, TaggedItem
+from django.db.models import Count
+from django.urls import reverse
+import json
+import requests
 
-class PostList(generic.ListView):
+
+# Class for Post List in Homepage
+class PostList(generic.ListView, generic.FormView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 5
+    tag_slug = None
+    tag = None
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        posts = queryset.filter(tags__in=[tag]).order_by('-created_on')
 
 
+#Function for Post View page
 def post_detail(request, slug):
     template_name = 'post_detail.html'
     # get post object
@@ -30,9 +48,22 @@ def post_detail(request, slug):
             new_comment.save()
     else :
         comment_form =CommmentForm()
+    # List of simiilar posts
+    post_tags_ids = post.tags.values_list('id', flat=True)
+    similar_posts = Post.objects.filter(tags__in=post_tags_ids).exclude(id=post.id)
+    similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-created_on') [:6]
 
     return render(request, template_name, {'post': post,
                                         'comments': comments,
                                         'new_comment': new_comment,
-                                        'comment_form': comment_form})
+                                        'comment_form': comment_form,
+                                        'similar_posts': similar_posts})
 
+
+def about_view(request):
+    template_name = "about.html"
+    return render(request, template_name)
+
+def contact_view(request):
+    template_name = "contact.html"
+    return render(request, template_name)
