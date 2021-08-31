@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<style>
+    body{
+        padding-top: 70px;
+    }
+</style>
+
+{% if tag %}
+
+
+    <h2 class="mb-3 text-center">Posts tagged with "{{ tag.name }}"</h2>
+<main class="container">
+    <div class="row">
+        <div class="col-md-8 mt-3 left">
+            {% for post in posts %}
+            <div id="postCard" class="card mb-4">
+                <div class="card-body">
+                    <a href="{% url 'post_detail' post.slug %}">
+                        <h2 class="card-title">{{ post.title }}</h2>
+                        <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on }}</p>
+                        <p class="card-text">{{ post.content|slice:":400"| safe }}</p>
+                    </a>
+                    <a href="{% url 'post_detail' post.slug %}" class="btn btn-dark">Read More &rarr;</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+
+
+{% endif %}
+
+{% endblock content %}

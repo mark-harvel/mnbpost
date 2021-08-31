@@ -65,12 +65,8 @@ input {
     float: right;
 }
 
-/****************** Post card for similar post ************/
-#smPostCard {
-    position: relative;
-}
-
-#smPostCard .btn {
-    float: right;
+/****************** Post list for similar post ************/
+#smList {
+    list-style-type: none;
 }
 

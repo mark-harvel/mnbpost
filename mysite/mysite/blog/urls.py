@@ -9,5 +9,5 @@ urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
     path('<slug:slug>/', views.post_detail, name='post_detail'),
     path('feed/rss', LatestPostFeed(), name="post_feed"),
-    path('tag/<slug:tag_slug>/', views.PostList.as_view(), name='post_tag')
+    path('tag/<slug:tag_slug>/', views.tag_post, name='post_tag')
 ]

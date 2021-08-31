@@ -8,7 +8,7 @@ from .models import Post, Signup
 from django.http import HttpResponseRedirect
 from .forms import CommmentForm
 from taggit.models import Tag, TaggedItem
-from django.db.models import Count
+from django.db.models import Count, query
 from django.urls import reverse
 import json
 import requests
@@ -19,13 +19,17 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 5
-    tag_slug = None
+   
+
+def tag_post(request, tag_slug=None):
+    template_name = 'tag_post.html'
     tag = None
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
-        posts = queryset.filter(tags__in=[tag]).order_by('-created_on')
+        posts = Post.objects.filter(tags__in=[tag])
+    return render(request, template_name, {'posts':posts, 'tag':tag})
 
-
+    
 #Function for Post View page
 def post_detail(request, slug):
     template_name = 'post_detail.html'
