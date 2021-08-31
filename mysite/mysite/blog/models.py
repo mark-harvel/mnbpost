@@ -45,10 +45,4 @@ class Comment(models.Model):
     def __str__(self):
         return 'Comment {} by {}'.format(self.body, self.name)
 
-class Signup(models.Model):
-    email = models.EmailField()
-    timestamp = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.email
         

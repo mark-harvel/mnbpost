@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.conf import settings
 from django.views import generic
 from django.views.generic.base import TemplateView
-from .models import Post, Signup
+from .models import Post
 from django.http import HttpResponseRedirect
 from .forms import CommmentForm
 from taggit.models import Tag, TaggedItem
@@ -19,7 +19,8 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 5
-   
+
+        
 
 def tag_post(request, tag_slug=None):
     template_name = 'tag_post.html'
@@ -29,7 +30,7 @@ def tag_post(request, tag_slug=None):
         posts = Post.objects.filter(tags__in=[tag])
     return render(request, template_name, {'posts':posts, 'tag':tag})
 
-    
+
 #Function for Post View page
 def post_detail(request, slug):
     template_name = 'post_detail.html'

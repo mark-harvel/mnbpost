@@ -3,6 +3,7 @@
 {% block pagename %}About mnbpost {% endblock pagename %}
 
 {% block header %}
+
 <style>
     #HeaderBanner {
       background-image: url('../static/images/shubham-dhage-sTjJYqHI1Ds-unsplash.jpg');
@@ -48,9 +49,7 @@
           <li class="nav-item">
             <a class="nav-link text-white" href="{% url 'contact' %}"><i class="fas fa-address-book"></i> Contact</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#"><i class="fas fa-bell"></i> Subscribe</a>
-          </li>
+         
         </ul>
       </div>
     </div>
@@ -72,6 +71,7 @@
 
 {% block content %}
 
+
 <section id="BannerRole" class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
     <div class="content text-center">
         <h2 style="font-family: 'Lobster', cursive; font-size: 35px;" class="text-white">Every article in MnBpost is written with the objective to inform and help others.</h2>
@@ -85,6 +85,7 @@
     </div>
     
 </section>
+
 
 
 {% endblock content %}
