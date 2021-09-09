@@ -1,0 +1,72 @@
+body {
+    background-color: #fafafa;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+/****************** header banner ********************/
+#BannerSlogan {
+    font-family: 'Lobster', cursive;
+}
+
+/****************** custom navbar ********************/
+.navbar-brand {
+    font-family: 'Lobster', cursive;
+}
+
+#siteNavbar {
+    background: white;
+}
+
+#offcanvasNavbarLabel {
+    font-family: 'Lobster', cursive;
+}
+
+/********************* Subscribe Form *************/
+.subscribe h1 {
+    font-size: 1.5rem;
+    line-height: 130%;
+    letter-spacing: 0.07rem;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+input {
+    padding: .8rem 1rem;
+    width: 40%;
+    border-radius: 5rem;
+    outline: none;
+    border: .1rem solid #d1d1d1;
+    font-size: .7rem;
+}
+
+.subscribe-btn {
+    padding: .8rem 2rem;
+    border-radius: 5rem;
+    background: linear-gradient(90deg, #ff9966, #ff5e62);
+    color: #fff;
+    font-size: .7rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+/******************** About page *******************/
+
+/******************* Post card on Home ********************/
+#postCard {
+    position: relative;
+}
+
+#postCard .btn {
+    float: right;
+}
+
+/****************** Post list for similar post ************/
+#smList {
+    list-style-type: none;
+}
+
